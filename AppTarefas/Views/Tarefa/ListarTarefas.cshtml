@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AppTarefas.Classes.Tarefa>
+
+@{
+    ViewBag.Title = "ListarTarefas";
+}
+
+<h2>ListarTarefas</h2>
+
+<p>
+    @Html.ActionLink("Nova Tarefa", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdTarefa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescTarefa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdTarefa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescTarefa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescStatus)
+        </td>
+
+        <td>
+            @Html.ActionLink("Alterar", "Update", new { id = item.IdTarefa})
+            @Html.ActionLink("Apagar", "Delete", new { id = item.IdTarefa })
+        </td>
+    </tr>
+}
+
+</table>
